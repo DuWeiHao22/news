@@ -1,32 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {};
+</script>
+
+<style>
+@import url("http://at.alicdn.com/t/font_2115747_0si8hde3k1g8.css");
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol,
+li {
+  list-style: none;
 }
 
-#nav {
-  padding: 30px;
+input,
+button {
+  border: none;
+  outline: none;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+a:hover {
+  text-decoration: none;
+}
+a {
+  color: inherit;
+}
+i,
+b {
+  font-family: none;
+  font-weight: normal;
+  font-style: none;
 }
 </style>
