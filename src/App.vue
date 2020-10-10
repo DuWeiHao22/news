@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style>
-@import url("http://at.alicdn.com/t/font_2115747_0si8hde3k1g8.css");
+@import url("http://at.alicdn.com/t/font_2115747_v84ass41t2k.css");
 * {
   margin: 0;
   padding: 0;
