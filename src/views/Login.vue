@@ -3,9 +3,9 @@
     <i class="iconfont icon-fanhuijiantou"></i>
     <div class="iconfont icon-xinwen"></div>
     <div class="logo_title">Dark Horse</div>
-    <AuthInput />
-    <AuthInput />
-    <AuthInput />
+    <AuthInput icon="icon-shouji1" text_hint="请输入手机号" />
+    <AuthInput icon="icon-yonghuming" text_hint="请输入用户名" />
+    <AuthInput icon="icon-mima3" text_hint="请输入密码" />
     <AuthButton />
     <div class="login_footer">
       <span>注册</span>

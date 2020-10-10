@@ -1,15 +1,37 @@
 <template>
   <div class="input_wrapper">
-    <i class="iconfont icon-shouji1"></i>
-    <input type="text" placeholder="请输入内容" />
-    <div class="remove_text">
+    <i class="iconfont" :class="icon"></i>
+    <input type="text" :placeholder="text_hint" v-model="inputText" />
+    <div class="remove_text" v-if="inputRemove" @click="removeInput">
       <b class="iconfont icon-guanbi"></b>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["icon", "text_hint"],
+  data() {
+    return {
+      inputRemove: false,
+      inputText: "",
+    };
+  },
+  watch: {
+    inputText() {
+      if (this.inputText) {
+        this.inputRemove = true;
+      } else {
+        this.inputRemove = false;
+      }
+    },
+  },
+  methods: {
+    removeInput() {
+      this.inputText = "";
+    },
+  },
+};
 </script>
 
 <style lang="less">
