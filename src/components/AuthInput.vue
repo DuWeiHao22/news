@@ -1,7 +1,14 @@
 <template>
   <div class="input_wrapper">
     <i class="iconfont" :class="icon"></i>
-    <input type="text" :placeholder="text_hint" v-model="inputText" />
+    <input
+      type="text"
+      :placeholder="text_hint"
+      v-model="inputText"
+      :class="{
+        err: inputErr,
+      }"
+    />
     <div class="remove_text" v-if="inputRemove" @click="removeInput">
       <b class="iconfont icon-guanbi"></b>
     </div>
@@ -10,19 +17,25 @@
 
 <script>
 export default {
-  props: ["icon", "text_hint"],
+  props: ["icon", "text_hint", "rule"],
   data() {
     return {
       inputRemove: false,
       inputText: "",
+      inputErr: false,
     };
   },
   watch: {
     inputText() {
       if (this.inputText) {
+        // 判断输入框是否有内容,在决定清除按钮的显示或隐藏
         this.inputRemove = true;
+        // 校验输入框输入内容,如果错误显示提示
+        this.inputErr = !this.rule.test(this.inputText);
       } else {
+        // 输入框没有内容,则隐藏清除按钮和错误提示的显示
         this.inputRemove = false;
+        this.inputErr = false;
       }
     },
   },
@@ -48,6 +61,9 @@ export default {
     line-height: 40/360 * 100vw;
     font-size: 16/360 * 100vw;
     color: #fff;
+    &.err {
+      border-bottom-color: #b00000;
+    }
   }
   i {
     position: absolute;

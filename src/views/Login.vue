@@ -3,15 +3,24 @@
     <i class="iconfont icon-fanhuijiantou"></i>
     <div class="iconfont icon-xinwen"></div>
     <div class="logo_title">Dark Horse</div>
-    <AuthInput icon="icon-shouji1" text_hint="请输入手机号" />
-    <AuthInput icon="icon-yonghuming" text_hint="请输入用户名" />
-    <AuthInput icon="icon-mima3" text_hint="请输入密码" />
+    <AuthInput
+      icon="icon-shouji1"
+      text_hint="请输入手机号"
+      :rule="ruleNumber"
+    />
+    <AuthInput
+      icon="icon-yonghuming"
+      text_hint="请输入用户名"
+      :rule="ruleNickname"
+    />
+    <AuthInput icon="icon-mima3" text_hint="请输入密码" :rule="rulePassword" />
     <AuthButton />
     <div class="login_footer">
       <span>注册</span>
       <span>忘记密码?</span>
     </div>
     <div class="hint_text">更多帮助...</div>
+    {{ test() }}
   </div>
 </template>
 
@@ -22,6 +31,16 @@ export default {
   components: {
     AuthInput,
     AuthButton,
+  },
+  data() {
+    return {
+      ruleNumber: /^1[3|4|5|7|8][0-9]{9}$/,
+      ruleNickname: /^\w{3,10}/,
+      rulePassword: /^\w{3,11}/,
+    };
+  },
+  methods: {
+    test() {},
   },
 };
 </script>
